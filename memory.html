@@ -41,8 +41,7 @@
 
 	</style>
 
-		<script>
-		</script>
+
 
 <body>	
 		<div id="game">	
@@ -73,3 +72,43 @@
 						<p id="message"></p>
 				</div>
 		</div>
+
+		<script>
+
+			var tabCouleurs = ["bleu", "bleu", "yellow", "yellow", "orange","red","green","rose","brun","mauve","orange","red","green","rose","brun","mauve"];
+
+
+
+			var Carre = function(element, color){
+				
+				var _self=this;
+				this.element = element;
+				this.color= color;
+				this.element.addEventListener("click", function(){
+					_self.tap();
+				});
+
+			}
+
+			Carre.prototype.tap = function(){
+				console.log(this.color);
+
+			}
+
+			var mySquares = document.getElementsByClassName("square");
+			console.log(mySquares);
+
+			var squareStack = [];
+
+			for (var i = 0; i < mySquares.length; i++) {
+				
+				var monCarre = new Carre(mySquares[i], tabCouleurs[i]);
+				squareStack.push(monCarre);
+				
+			}
+			console.log(squareStack);
+
+		</script>
+
+
+		</body>
