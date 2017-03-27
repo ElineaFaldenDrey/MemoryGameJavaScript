@@ -19,21 +19,39 @@
 		<script>
 
 
-
+			// on luidit de lancer la function "function()" une fois le DOM loaded
 			window.addEventListener("DOMContentLoaded", function(){
 
+				// on lui dit que chaque element possédant la classe square sera lié à la variable squares
 				var squares = document.getElementsByClassName("square");
+
+				//on décrete que la derniere couleur de l'element selectionné n'est pas encore existante
 				var lastColor = null;
 
 				for(var i = 0; i<squares.length; i++){
 
+					// on boucle sur un event "click" 
 					squares[i].addEventListener("click", function(event){
+
+						// il va prendre l'attribut "data-color" de notre target sur lequel l'event a eut lieu et le mettre dans la variable color
 						let color = event.target.getAttribute("data-color");
+
+						// si la dernière couleur est egale à la couleur dans data-color de l'element subissant l'event, on console.log(trouvé)
 
 						if(lastColor == color){
 							console.log("trouvé")
+
+							// sinon on assigne la couleur de l'element subissant l'event à last color pour pouvoir comparé cette dernière au suivant.
 						} else {
-							lastColor = color;
+							// attention il garde la derniere
+							if(lastColor != null){
+								lastColor = null;
+							}
+							else{
+								lastColor = color;
+							}
+
+							//lastColor = color;
 						}
 						
 					})
