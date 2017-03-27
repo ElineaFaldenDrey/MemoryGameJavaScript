@@ -4,17 +4,20 @@
 	<meta charset="UTF-8">
 		<title>Games</title>
 		<style>
-				#game {
-					width : 200px;
-					background: grey;
-				}
-				.square {
-					width: 50px;
-					height: 50px;
-					margin: 10px;
-					background: orange;
-					float: left;
-				}
+				#game{
+			width: 400px;
+			height: 400px;
+			border: 1px solid black;
+			background: #607d8b; 
+		}
+		.square {
+			width: 80px;
+			height: 80px;
+			margin: 10px;
+			background-color: 	#20B2AA ;
+			float: left;
+			transition: 0.2s all; 
+		}
 		</style>
 		<script>
 
@@ -27,6 +30,8 @@
 
 				//on décrete que la derniere couleur de l'element selectionné n'est pas encore existante
 				var lastColor = null;
+				var lastTarget = null;
+				let count = 0;
 
 				for(var i = 0; i<squares.length; i++){
 
@@ -35,27 +40,63 @@
 
 						// il va prendre l'attribut "data-color" de notre target sur lequel l'event a eut lieu et le mettre dans la variable color
 						let color = event.target.getAttribute("data-color");
+						let target = event.target;
+						
+						
+						
 
 						// si la dernière couleur est egale à la couleur dans data-color de l'element subissant l'event, on console.log(trouvé)
 
-						if(lastColor == color){
+						if(lastColor == color && target != lastTarget){ // ATTENTION IL FONCTIONNE NE CLIQUANT SUR LUI MEME 
 							console.log("trouvé")
+							count++;
+							console.log("count = " + count);
+							event.target.style.backgroundColor = color;
+
+							if(count == (squares.length*0.5)){
+
+								alert("Vous avez gagné !");
+							}
+
+						
+
+							
 
 							// sinon on assigne la couleur de l'element subissant l'event à last color pour pouvoir comparé cette dernière au suivant.
 						} else {
 							// attention il garde la derniere
 							if(lastColor != null){
+								//second click faux
+
 								lastColor = null;
+
+								console.log("Verification LastColor = "+lastColor);
+								
+								lastTarget.style.backgroundColor = "#20B2AA";
+								target.style.backgroundColor = "#20B2AA";
+								
+
+
 							}
 							else{
+								//premier click
+
 								lastColor = color;
+								lastTarget = target;
+
+								event.target.style.backgroundColor = color;
+								console.log("Verification LastColor = "+lastColor);
+								
+								
 							}
+
 
 							//lastColor = color;
 						}
 						
 					})
 				}
+
 
 			})
 
@@ -70,6 +111,16 @@
 			<div id="square-4" class="square" data-color="green"></div>
 			<div id="square-5" class="square" data-color="blue"></div>
 			<div id="square-6" class="square" data-color="blue"></div>
+			<div id="square-7" class="square" data-color="yellow"></div>
+			<div id="square-8" class="square" data-color="yellow"></div>
+			<div id="square-9" class="square" data-color="pink"></div>
+			<div id="square-10" class="square" data-color="pink"></div>
+			<div id="square-11" class="square" data-color="purple"></div>
+			<div id="square-12" class="square" data-color="purple"></div>
+			<div id="square-13" class="square" data-color="grey"></div>
+			<div id="square-14" class="square" data-color="grey"></div>
+			<div id="square-15" class="square" data-color="cyan"></div>
+			<div id="square-16" class="square" data-color="cyan"></div>
 		</div>
 		
 	</body>
