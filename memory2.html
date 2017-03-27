@@ -9,15 +9,15 @@
 			height: 400px;
 			border: 1px solid black;
 			background: #607d8b; 
-		}
-		.square {
-			width: 80px;
-			height: 80px;
-			margin: 10px;
-			background-color: 	#20B2AA ;
-			float: left;
-			transition: 0.2s all; 
-		}
+				}
+				.square {
+					width: 80px;
+					height: 80px;
+					margin: 10px;
+					background-color: 	#20B2AA ;
+					float: left;
+					transition: 0.2s all; 
+				}
 		</style>
 		<script>
 
@@ -46,12 +46,15 @@
 						
 
 						// si la dernière couleur est egale à la couleur dans data-color de l'element subissant l'event, on console.log(trouvé)
-
+						console.log( target != lastTarget);
 						if(lastColor == color && target != lastTarget){ // ATTENTION IL FONCTIONNE NE CLIQUANT SUR LUI MEME 
 							console.log("trouvé")
 							count++;
 							console.log("count = " + count);
 							event.target.style.backgroundColor = color;
+							lastTarget.style.backgroundColor = color;
+
+							lastTarget = null;
 
 							if(count == (squares.length*0.5)){
 
@@ -65,15 +68,21 @@
 							// sinon on assigne la couleur de l'element subissant l'event à last color pour pouvoir comparé cette dernière au suivant.
 						} else {
 							// attention il garde la derniere
-							if(lastColor != null){
+							if(lastColor != null && lastTarget != null){
 								//second click faux
 
-								lastColor = null;
+
 
 								console.log("Verification LastColor = "+lastColor);
 								
+								console.log(lastTarget);
+
 								lastTarget.style.backgroundColor = "#20B2AA";
+
 								target.style.backgroundColor = "#20B2AA";
+
+								lastColor = null;
+								lastTarget = null;
 								
 
 
