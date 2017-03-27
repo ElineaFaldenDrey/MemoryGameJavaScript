@@ -22,22 +22,33 @@
 				}
 		</style>
 		<script>
+// --------- DEFINITION VARIOABLES -------------------------------------------------------------------------------
+		var tabColor =["#03A9F4","#28536B","#FA5A00","#1B998B","#E4572E","#8FCF46","#44355B","#CB1989"] ; 
 
-		var color = ; //random couleur pick dans un tableau
-			
-			window.addEventListener("DOMContentLoaded", function(){
+		
+		
+// -------- FONCTIONS MAIN ---------------------------------------------------------------------------------------
+
+			window.addEventListener("DOMContentLoaded", function(){                   // Make it wait for the DOM to be loaded
 
 				var touchesPiano = document.getElementsByClassName("touche");
 
-					for(var i = 0; i<squares.length; i++){
 
-						// on boucle sur un event "click" 
-						touchess[i].addEventListener("click", function(event){
+                // on boucle sur un event "click" 
+				for(var i = 0; i<touchesPiano.length; i++){
 
-							event.target.style.backgroundColor = color;
-						}
+					
+					touchesPiano[i].addEventListener("click", function(event){
+
+						var color = tabColor[Math.floor(Math.random()*tabColor.length)];
+						console.log(color);
+
+						event.target.style.backgroundColor = color;
+						})
 
 				}
+			})
+			
 
 		</script>
 	</head>
