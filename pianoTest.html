@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+		<title>Games</title>
+		<style>
+				#piano{
+					width: 730px;
+					height: 350px;
+					border: 1px solid black;
+					background: #000000;
+				}
+				.touche {
+					width: 85px;
+					height: 300px;
+					margin: 2px;
+					background-color: #FFFFFF ;
+					border: 1px solid black;
+					float: left;
+					transition: 0.2s all; 
+					 
+				}
+		</style>
+		<script>
+
+		var color = ; //random couleur pick dans un tableau
+			
+			window.addEventListener("DOMContentLoaded", function(){
+
+				var touchesPiano = document.getElementsByClassName("touche");
+
+					for(var i = 0; i<squares.length; i++){
+
+						// on boucle sur un event "click" 
+						touchess[i].addEventListener("click", function(event){
+
+							event.target.style.backgroundColor = color;
+						}
+
+				}
+
+		</script>
+	</head>
+	<body>
+
+		<div id="piano">
+			<div id="touche-1" class="touche" ></div>
+			<div id="touche-2" class="touche" ></div>
+			<div id="touche-3" class="touche" ></div>
+			<div id="touche-4" class="touche" ></div>
+			<div id="touche-5" class="touche" ></div>
+			<div id="touche-6" class="touche" ></div>
+			<div id="touche-7" class="touche" ></div>
+			<div id="touche-8" class="touche" ></div>
+			
+		</div>
+		
+	</body>
+</html>
