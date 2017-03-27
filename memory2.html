@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+		<title>Games</title>
+		<style>
+				#game {
+					width : 200px;
+					background: grey;
+				}
+				.square {
+					width: 50px;
+					height: 50px;
+					margin: 10px;
+					background: orange;
+					float: left;
+				}
+		</style>
+		<script>
+
+
+
+			window.addEventListener("DOMContentLoaded", function(){
+
+				var squares = document.getElementsByClassName("square");
+				var lastColor = null;
+
+				for(var i = 0; i<squares.length; i++){
+
+					squares[i].addEventListener("click", function(event){
+						let color = event.target.getAttribute("data-color");
+
+						if(lastColor == color){
+							console.log("trouvé")
+						} else {
+							lastColor = color;
+						}
+						
+					})
+				}
+
+			})
+
+		</script>
+	</head>
+	<body>
+
+		<div id="game">
+			<div id="square-1" class="square" data-color="red"></div>
+			<div id="square-2" class="square" data-color="red"></div>
+			<div id="square-3" class="square" data-color="green"></div>
+			<div id="square-4" class="square" data-color="green"></div>
+			<div id="square-5" class="square" data-color="blue"></div>
+			<div id="square-6" class="square" data-color="blue"></div>
+		</div>
+		
+	</body>
+</html>
