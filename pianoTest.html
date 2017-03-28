@@ -25,7 +25,7 @@
 // --------- DEFINITION VARIOABLES -------------------------------------------------------------------------------
 		var tabColor =["#03A9F4","#28536B","#FA5A00","#1B998B","#E4572E","#8FCF46","#44355B","#CB1989"] ; 
 
-		
+		var toucheDown = null;
 		
 // -------- FONCTIONS MAIN ---------------------------------------------------------------------------------------
 
@@ -38,13 +38,16 @@
 				for(var i = 0; i<touchesPiano.length; i++){
 
 					
-					touchesPiano[i].addEventListener("click", function(event){
+					touchesPiano[i].addEventListener("mousedown", function(event){
 
 						var color = tabColor[Math.floor(Math.random()*tabColor.length)];
 						console.log(color);
 
+						toucheDown = event.target;
 						event.target.style.backgroundColor = color;
 						})
+
+					toucheDown.style.backgroundColor = "#FFFFFF";
 
 				}
 			})
