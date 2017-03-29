@@ -7,10 +7,6 @@ let onReadyDom = function (){
  // -------- DECLARATION VARIABLES ESSENTIELLES ------------------------------------------------------------------------
 
 	var randomIA = Math.floor(Math.random*3);
-	var soundsTab = ["sounds_01","sounds_02","sounds_03","sounds_04"];
-	var soundsObj = [];
-	console.log(soundsObj);
-
 
 	var level = 1;
 
@@ -34,8 +30,7 @@ let onReadyDom = function (){
 		{
 			// Quand on clique sur la case, on va mettre dans le tabIDCLick l'id de la case
 			tabIDClick.push(event.target.id);
-			// console.log("VERIFICATION tabIDClick = " + tabIDClick);
-			soundsObj[_self.id].play();
+			console.log("VERIFICATION tabIDClick = " + tabIDClick);
 
 			// On ajoute ensuite la classe active aux classe actuelles de la case cliquée
 			event.target.classList.add("active");
@@ -47,7 +42,7 @@ let onReadyDom = function (){
 
 			}, 1000);
 
-				// console.log("VERIFICATION tabRandomColor = " + tabRandomColor);
+				console.log("VERIFICATION tabRandomColor = " + tabRandomColor);
 
 				
 
@@ -55,8 +50,8 @@ let onReadyDom = function (){
 				for (var i = 0; i < tabRandomColor.length; i++) 
 				{
 						
-					    // console.log("tabRandomColor[i] =" + tabRandomColor[i]);
-					    // console.log("tabIDClick[i] =" + tabIDClick[i]);
+					    console.log("tabRandomColor[i] =" + tabRandomColor[i]);
+					    console.log("tabIDClick[i] =" + tabIDClick[i]);
 
 					if(tabRandomColor[i] == tabIDClick[i])
 					{
@@ -96,7 +91,7 @@ let onReadyDom = function (){
 
 			// on crée un int entre 0 et 4 représentant une couleur différente (on sait qu'il y en a 4)
 			var randomIA =parseInt(Math.floor(Math.random() * 4 ));
-			// console.log("VERIFICATION RANDOMIA = " + randomIA);
+			console.log("VERIFICATION RANDOMIA = " + randomIA);
 
 			// on switch sur le int qu'on a eu au dessus et selon le chiffre assigné à une couleur, on push cette valeur dans le tableau
 			switch(randomIA)
@@ -205,15 +200,10 @@ let onReadyDom = function (){
 
 		let maCase = new Case(carre[i], i);
 		tabCases.push(maCase);
-		
-		let music = new Audio();
-		music.src = "sounds/mp3/"+soundUrl[i]+".mp3";
-		music.push(soundsObj);
-
 			
 	}
 
+	console.log(tabCases[0]);
 }
 
 window.addEventListener("DOMContentLoaded", onReadyDom);
-
